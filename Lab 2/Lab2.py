@@ -86,47 +86,5 @@ ET.dump(root)
 tree=ET.ElementTree(root)
 tree.write("X.xml")
 
-##a = io.open('a.txt', 'r', newline='\n')
-##words = re.findall(r'[а-яієї’А-Я]*[а-яієї’А-Я]\b',a.read())
-##d = dict()
-##for i in words:
-##       if i not in d:d[i] = 1
-##       else:d[i] += 1
-##import xml.etree.cElementTree as ET
-##
-##root = ET.Element("root")
-##data = ET.SubElement(root, "data")
-##word = ET.SubElement(data,"word")               
-##ends = re.findall(r'..\w\b', str(words))
-##print(ends)
-##e = dict()
-##for end in ends:
-##      if end not in e:e[end] = 1
-##      else:e[end] += 1
-##wordsinline = {}
-##k = 0
-##for line in lines:
-##    line = line.split()
-##    wordsinline[k]= len(line)
-##    k+=1
-##k = 0
-##wordit = 1
-##lineit = 0
-##for i in ends:
-##        word = ET.SubElement(data, "word")
-##        ET.SubElement(word, "word", name=str(words[k])).text = str(d[words[k]])
-##        ET.SubElement(word, "end", name=str(i)).text = str(e[i])
-##        ET.SubElement(word, "stringnumber").text = str(lineit+1)
-##        ET.SubElement(word, "wordnumber").text = str(wordit)
-##         
-##        if wordit >= wordsinline[lineit]:
-##            lineit+=1
-##            wordit = 1
-##        else:
-##            wordit +=1
-##        k+=1
-##    
-##tree = ET.ElementTree(root)
-##tree.write("c.xml")
 
 
