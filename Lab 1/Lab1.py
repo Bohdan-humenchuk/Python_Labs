@@ -20,7 +20,7 @@ def Func2(num1, num2):
     ertest=False
     for i in range(num1, num2+1):
         test=True
-        for j in range(2, int(i/2)):
+        for j in range(2, int(i/2+1)):
             if(Func1(i, j)):
                 test=False
         if(test):
