@@ -8,11 +8,11 @@ def NewUser(first_name, mid_name, last_name, login, password):
 def login(login, password):
     info=sender.sendtoserver('checkin '+login+" "+password).split()
     print(info)
-    return CurrentUser(info[1], info[2], info[3], login)
-        
-def Enter():
-    current_client=login(input("enter login: "), input("enter password: "))
-    return current_client
+    if(info[0]!="EnterAs"):
+        print("wrong user, try again")
+    else:
+        return CurrentUser(info[1], info[2], info[3], login)
+    
 
 ###############################################################################
 
@@ -32,7 +32,7 @@ class CurrentUser(UserBasic):
     def __init__(self, first_name, mid_name, last_name, login):
         UserBasic.__init__(self, first_name, mid_name, last_name)
         self.login=login
-        print("entered")
+        print("entered as", login)
         ##add login action to history
 
     def GetBudget(self):
@@ -41,7 +41,7 @@ class CurrentUser(UserBasic):
         pass
 
     def AddMoneyToBudget(self, money_amount):
-        sender.sendtoserver('addtobudget '+str(money_amount))
+        sender.sendtoserver('addtobudget '+  +str(money_amount))
         ##add money_amount to main budget
         ##add AddMoneyToBudget by CurrentUser action to history
         pass
@@ -61,3 +61,10 @@ class CurrentUser(UserBasic):
     def commandlist():
         print("GetBudget() - returns current budget of your family")
         print("")
+
+
+
+def main():
+    login=input("enter you login: ")
+    password=input("enter your password: ")
+    current_user=login(login, password)

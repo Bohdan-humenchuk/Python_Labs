@@ -25,7 +25,6 @@ def commander(comm):
     elif (comar[0]=="giveme"):
         returnvar=addtopersonalfrombudget(comar[1]),
     elif (comar[0]=="adduser"):
-        
         returnvar=addnewusertoDB(),
     elif (comar[0]=="addfamily"):
         returnvar=addnewfamilytoDB(comar[1], comar[2]),
@@ -35,6 +34,8 @@ def commander(comm):
     return returnvar
     ##return result
     ##pass
+
+############# function list #####################
 
 def getbudget():
     ##return 
@@ -67,8 +68,7 @@ def checkin(login, password):
     ##check if login and password entered is correct
     try:
         if (enterlist[login]==password):
-            returncommand="EnterAs "+ "humenchuk bohdan romanovich" + login
-            
+            returncommand="EnterAs "+ dbcon.GetNames('users', 'login', login, 'names')
         else:
             returncommand="wrong user"
     except (ValueError, KeyError):

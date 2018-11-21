@@ -51,4 +51,25 @@ def createUser(login, first_name, second_name, last_name, family, start_budget, 
 ##            print("id: "+str(row[0])+" Логин: "+row[1]+" | Пароль: "+row[2])
 ##            row = curs.fetchone()
         
+def GetNames(table, keycolumn, cellname, needcolumn):
+    curs.execute('''
+        SELECT names
+        FROM users
+        WHERE id = '%s'
+        '''%(cellname))
+    result=curs.fetchone()
+    conn.commit()
+    return result
+##    return curs.fetchone()[0]
+
+def SetCellWhere(table, needcolumn, value, keycolumn, cellname):
+    curs.execute('''
+        UPDATE '%s'
+        SET '%s' = '%d'
+        WHERE '%s' = '%s'
+        '''%(table, needcolumn, value, cellname, keycolumn))
+##    return curs.fetchone()[0]
+
+
+
 

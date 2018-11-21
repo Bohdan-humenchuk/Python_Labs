@@ -15,7 +15,6 @@ def sendtoserver(command):
     tcp_socket.send(data)
     data = bytes.decode(data)
     data = bytes.decode(tcp_socket.recv(1024))
-
     return data    
 
 def close_connection():
